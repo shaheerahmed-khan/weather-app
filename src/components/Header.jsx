@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useGeolocation } from '/src/hooks/useGeolocation.js';
+import { getWeatherData } from '/src/api/openMeteo.js';
 
 export default function Header() {
 

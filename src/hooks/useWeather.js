@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { getWeatherData } from "/src/api/openMeteo.js";
 
-export default function useWeather({ latitude, longitude }) {
+export default function useWeather(options) {
+  const { latitude, longitude } = options || {};
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);

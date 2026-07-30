@@ -20,15 +20,17 @@ export default function useGeolocation() {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         });
+        if (!location) {
+          setLocation({
+            latitude: 40.7128, // Default latitude (New York City)
+            longitude: -74.006, // Default longitude (New York City)
+          });
+        }
         setLoading(false);
       },
       (err) => {
-        setError(`Location error: ${err?.message}. Using default location.`);
+        setError(`Location error: ${err?.message}.`);
 
-        setLocation({
-          latitude: 40.7128, // Default latitude (New York City)
-          longitude: -74.006, // Default longitude (New York City)
-        });
         setLoading(false);
       },
       {
@@ -37,7 +39,7 @@ export default function useGeolocation() {
         maximumAge: 0,
       },
     );
-  }, []);
+  }, [location]);
 
   return { location, loading, error };
 }

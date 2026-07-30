@@ -11,12 +11,12 @@ export async function getWeatherData(latitude, longitude) {
         latitude: latitude,
         longitude: longitude,
         current: [
-          "temperature_2m",
-          "relative_humidity_2m",
           "apparent_temperature",
+          "relative_humidity_2m",
+          "wind_speed_10m",
           "precipitation",
           "weather_code",
-          "wind_speed_10m",
+          "temperature_2m",
         ].join(","),
 
         hourly: [
@@ -25,6 +25,17 @@ export async function getWeatherData(latitude, longitude) {
           "precipitation_probability",
           "wind_speed_10m",
           "cloud_cover",
+        ].join(","),
+
+        daily: [
+          "weather_code",
+          "temperature_2m_max",
+          "temperature_2m_min",
+          "apparent_temperature_max",
+          "apparent_temperature_min",
+          "precipitation_sum",
+          "precipitation_probability_max",
+          "wind_speed_10m_max",
         ].join(","),
 
         timezone: "auto",

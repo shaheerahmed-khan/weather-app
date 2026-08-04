@@ -5,6 +5,8 @@ export default function useGeocoding(city) {
   const [location, setLocation] = useState({
     latitude: null,
     longitude: null,
+    city: "",
+    country:""
   });
 
   const [loading, setLoading] = useState(false);

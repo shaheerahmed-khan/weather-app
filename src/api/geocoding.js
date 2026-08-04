@@ -12,15 +12,15 @@ export async function getCoordinates(city) {
         count: 1,
       },
     });
-    if (!location.data.results?.length) {
+    if (!response.data.results?.length) {
       throw new Error("City not found!");
     }
-
+    console.log("Geocoding data:", response.data);
     const result = response.data.results[0];
     return {
       latitude: result.latitude,
       longitude: result.longitude,
-      name: result.name,
+      city: result.name,
       country: result.country,
     };
   } catch (err) {

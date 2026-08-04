@@ -1,36 +1,63 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getLocationName } from "/src/api/reverseGeocoding.js";
 
 export default function useGeolocation() {
-  const [location, setLocation] = useState({ latitude: null, longitude: null });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const geolocationSupported =
+    typeof window !== "undefined" &&
+    typeof navigator !== "undefined" &&
+    "geolocation" in navigator;
+
+  const [location, setLocation] = useState({
+    latitude: null,
+    longitude: null,
+    city: "",
+    country: "",
+  });
+  const [loading, setLoading] = useState(!geolocationSupported);
+  const [error, setError] = useState(
+    geolocationSupported
+      ? null
+      : "Geolocation is not supported by your browser",
+  );
 
   useEffect(() => {
-    if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser");
-      setLoading(false);
+    if (!geolocationSupported) {
       return;
     }
 
-    setError(null);
-
     navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLocation({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        });
-        if (!location) {
+      async (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        try {
+          const place = await getLocationName(latitude, longitude);
           setLocation({
-            latitude: 40.7128, // Default latitude (New York City)
-            longitude: -74.006, // Default longitude (New York City)
+            latitude,
+            longitude,
+            city: place.city,
+            country: place.country,
           });
+        } catch (err) {
+          console.error(err);
+          setLocation({
+            latitude,
+            longitude,
+            city: "",
+            country: "",
+          });
+        } finally {
+          setLoading(false);
         }
-        setLoading(false);
       },
       (err) => {
-        setError(`Location error: ${err?.message}.`);
-
+        console.warn("Geolocation unavailable, using fallback location:", err);
+        setError(null);
+        setLocation({
+          latitude: 40.7128,
+          longitude: -74.006,
+          city: "New York",
+          country: "United States",
+        });
         setLoading(false);
       },
       {
@@ -39,7 +66,7 @@ export default function useGeolocation() {
         maximumAge: 0,
       },
     );
-  }, [location]);
+  }, [geolocationSupported]);
 
   return { location, loading, error };
 }

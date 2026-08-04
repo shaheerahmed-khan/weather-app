@@ -25,6 +25,7 @@ export async function getWeatherData(latitude, longitude) {
           "precipitation_probability",
           "wind_speed_10m",
           "cloud_cover",
+          "weather_code",
         ].join(","),
 
         daily: [
@@ -41,6 +42,7 @@ export async function getWeatherData(latitude, longitude) {
         timezone: "auto",
       },
     });
+    console.log("Weather data:", data);
     return data;
   } catch (err) {
     console.log(err);

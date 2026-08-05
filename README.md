@@ -1,16 +1,76 @@
-# React + Vite
+# Weather app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ The project is a responsive weather application built with React, Vite, and the Open-Meteo API.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Screenshot
 
-## Expanding the ESLint configuration
+![Weather app preview](./public/og-image.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Links
+
+- Solution URL: [GitHub Repository](https://github.com)
+- Live Site URL: [Open the app locally](http://localhost:5173)
+
+## My process
+
+### Built with
+
+- React
+- Vite
+- Tailwind CSS
+- Axios
+- Open-Meteo API
+- vite-plugin-pwa
+
+### What I learned
+
+This project helped me improve my understanding of:
+
+- fetching and displaying data from third-party APIs
+- managing asynchronous state in React with custom hooks
+- building responsive layouts with Tailwind CSS
+- working with Progressive Web App features such as service worker registration and runtime caching
+
+### Continued development
+
+I would like to continue improving the app by:
+
+- adding richer search suggestions and autocomplete
+- improving the offline experience with better cached fallbacks
+- polishing the UI with more animations and transitions
+
+### Useful resources
+
+- [Open-Meteo API Documentation](https://open-meteo.com/en/docs)
+- [Vite Documentation](https://vite.dev/guide/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+
+### AI Collaboration
+
+I used GitHub Copilot and other AI-assisted tools during development to help with:
+
+- debugging React and API integration issues
+- improving component structure and state flow
+- generating and refining responsive UI adjustments
+
+The experience was especially helpful for speeding up iteration while keeping the app logic understandable.
+
+## Author
+
+- GitHub - [shaheer](https://github.com)
+- Frontend Mentor - [@shaheer](https://www.frontendmentor.io/profile/shaheer)

@@ -15,7 +15,6 @@ export async function getLocationName(latitude, longitude) {
       format: "jsonv2",
     },
   });
-  console.log("Reverse geocoding data:", data);
   return {
     city: data.address.city,
     country: data.address.country,

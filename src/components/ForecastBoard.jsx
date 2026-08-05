@@ -5,6 +5,7 @@ export default function ForecastBoard({
   dailyWeatherData,
   hourlyWeatherData,
   loading,
+  weatherConfig,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDayIndex, setSelectedDayIndex] = useState(0);
@@ -75,16 +76,19 @@ export default function ForecastBoard({
   const filteredHourlyData = hourlyWeatherData.time
     .map((time, index) => ({
       time,
-      temperature: hourlyWeatherData.temperature_2m[index],
+      temperature:
+        weatherConfig.temperature === "Fahrenheit"
+          ? (hourlyWeatherData.temperature_2m[index] * 9) / 5 + 32
+          : hourlyWeatherData.temperature_2m[index],
       weatherCode: hourlyWeatherData.weather_code[index],
     }))
     .filter((item) => item.time.startsWith(selectedDate));
 
   return (
-    <div className="w-full max-w-md mx-auto rounded-xl p-1 text-white font-[DM_Sans] bg-[hsl(243,27%,20%)]">
+    <div className="w-full max-w-md overflow-scroll scroll-smooth scrollbar-none max-h-225 mx-auto rounded-xl p-1 text-white font-[DM_Sans] bg-[hsl(243,27%,20%)]">
       <div className="flex justify-between w-full p-4 rounded-lg">
         <h3 className="text-xl font-semibold">Hourly forecast</h3>
-        <button
+        <div
           onClick={() => setIsOpen(!isOpen)}
           className="flex flex-row-reverse items-center gap-2 relative rounded-md p-1.5 pr-2 bg-[hsl(243,23%,30%)] cursor-pointer text-sm font-medium"
         >
@@ -120,7 +124,7 @@ export default function ForecastBoard({
               </span>
             )}
           </div>
-        </button>
+        </div>
       </div>
       <div>
         {filteredHourlyData.map((item) => (

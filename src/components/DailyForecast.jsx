@@ -71,7 +71,7 @@ export default function DailyForecast({ dailyWeatherData, loading }) {
   return (
     <div className="flex flex-col gap-2 w-full text-white font-[DM_Sans] m-1 mt-4">
       <h2 className="text-xl m-2 w-full">Daily forecast</h2>
-      <div className="flex flex-wrap justify-between">
+      <div className="flex flex-wrap">
         {dailyWeatherData.time.map((date, index) => (
           <div
             key={date}

@@ -8,6 +8,7 @@ export default function WeatherBoard({
   dailyWeatherData,
   place,
   loading,
+  weatherConfig,
 }) {
   if (loading) {
     return (
@@ -20,14 +21,14 @@ export default function WeatherBoard({
             height: "50vh",
             width: "100%",
           }}
-          className="p-4 rounded-xl flex items-center justify-between bg-[hsl(243,23%,30%)]"
+          className="p-4 sm:p-6 rounded-xl flex flex-col gap-4 items-start justify-between min-h-70 sm:min-h-80 md:flex-row md:items-center bg-[hsl(243,23%,30%)]"
         >
-          <div>
-            <h3 className="text-2xl font-bold "></h3>
+          <div className="w-full md:w-auto">
+            <h3 className="text-xl sm:text-2xl font-bold"></h3>
             <span></span>
           </div>
-          <div className="flex items-center justify-center gap-4">
-            <span className="text-8xl font-semibold italic"></span>
+          <div className="flex items-center justify-center gap-3 sm:gap-4 w-full md:w-auto">
+            <span className="text-5xl sm:text-7xl md:text-8xl font-semibold italic"></span>
           </div>
         </div>
         <AdditionalWeatherMetrics
@@ -61,30 +62,37 @@ export default function WeatherBoard({
           height: "50vh",
           width: "100%",
         }}
-        className="p-4 rounded-xl flex items-center justify-between text-white font-[DM_Sans] bg-[hsl(233,67%,56%)]"
+        className="p-4 sm:p-6 rounded-xl flex flex-col gap-4 items-start justify-between text-white font-[DM_Sans] bg-[hsl(233,67%,56%)] md:flex-row md:items-center"
       >
-        <div>
-          <h3 className="text-2xl font-bold ">
+        <div className="w-full md:w-auto">
+          <h3 className="text-xl sm:text-2xl font-bold">
             {place?.city}, {place?.country}
           </h3>
           <span>{today}</span>
         </div>
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-3 sm:gap-4 w-full md:w-auto">
           <img
             src={weather?.icon}
             alt={weather?.description}
-            className="w-36 h-36"
+            className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36"
           />
-          <span className="text-8xl font-semibold italic">
-            {Math.round(temperature_2m)}°
+          <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold italic">
+            {weatherConfig.temperature === "Fahrenheit"
+              ? `${Math.round((temperature_2m * 9) / 5 + 32)}°`
+              : `${Math.round(temperature_2m)}°`}
           </span>
         </div>
       </div>
       <AdditionalWeatherMetrics
         currentWeatherData={currentWeatherData}
         loading={loading}
+        weatherConfig={weatherConfig}
       />
-      <DailyForecast dailyWeatherData={dailyWeatherData} loading={loading} />
+      <DailyForecast
+        dailyWeatherData={dailyWeatherData}
+        loading={loading}
+        weatherConfig={weatherConfig}
+      />
     </div>
   );
 }

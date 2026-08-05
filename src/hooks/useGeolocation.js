@@ -37,21 +37,23 @@ export default function useGeolocation() {
             city: place.city,
             country: place.country,
           });
-        } catch (err) {
-          console.error(err);
+          setError(null);
+        } catch {
           setLocation({
             latitude,
             longitude,
             city: "",
             country: "",
           });
+          setError("Unable to resolve your location right now.");
         } finally {
           setLoading(false);
         }
       },
-      (err) => {
-        console.warn("Geolocation unavailable, using fallback location:", err);
-        setError(null);
+      () => {
+        setError(
+          "Using a default location because location access was unavailable.",
+        );
         setLocation({
           latitude: 40.7128,
           longitude: -74.006,

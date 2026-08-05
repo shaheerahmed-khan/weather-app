@@ -15,7 +15,6 @@ export async function getCoordinates(city) {
     if (!response.data.results?.length) {
       throw new Error("City not found!");
     }
-    console.log("Geocoding data:", response.data);
     const result = response.data.results[0];
     return {
       latitude: result.latitude,

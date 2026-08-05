@@ -24,7 +24,7 @@
 ### Links
 
 - Solution URL: [GitHub Repository](https://github.com/shaheerahmedkhan11/weather-app)
-- Live Site URL: [Open the app locally](http://localhost:5173)
+- Live Site URL: [App](https://weather-app-tau-ten-84.vercel.app/)
 
 ## My process
 
@@ -72,5 +72,5 @@ The experience was especially helpful for speeding up iteration while keeping th
 
 ## Author
 
-- GitHub - [shaheer](https://github.com)
+- GitHub - [shaheer](https://github.com/shaheerahmedkhan11/)
 - Frontend Mentor - [@shaheer](https://www.frontendmentor.io/profile/shaheer)

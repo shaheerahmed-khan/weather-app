@@ -1,4 +1,5 @@
 import { useState } from "react";
+import dropdownIcon from "/assets/images/icon-dropdown.svg";
 import { weatherCodes } from "/src/assets/weatherCodes";
 
 export default function ForecastBoard({
@@ -20,7 +21,8 @@ export default function ForecastBoard({
             className="flex flex-row-reverse items-center gap-2 relative rounded-md p-1.5 pr-2 bg-[hsl(243,23%,30%)] cursor-pointer text-sm font-medium"
           >
             <img
-              src="/assets/images/icon-dropdown.svg"
+              src={dropdownIcon}
+              alt="Toggle forecast day"
               className="text-white"
               style={{ transform: isOpen ? "rotate(180deg)" : "none" }}
             />
@@ -93,7 +95,7 @@ export default function ForecastBoard({
           className="flex flex-row-reverse items-center gap-2 relative rounded-md p-1.5 pr-2 bg-[hsl(243,23%,30%)] cursor-pointer text-sm font-medium"
         >
           <img
-            src="/assets/images/icon-dropdown.svg"
+            src={dropdownIcon}
             alt="Toggle forecast day"
             className="text-white"
             style={{ transform: isOpen ? "rotate(180deg)" : "none" }}

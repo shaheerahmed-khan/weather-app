@@ -19,11 +19,11 @@
 
 ### Screenshot
 
-![Weather app preview](./public/og-image.png)
+![Weather app preview](./screenshot.png)
 
 ### Links
 
-- Solution URL: [GitHub Repository](https://github.com)
+- Solution URL: [GitHub Repository](https://github.com/shaheerahmedkhan11/weather-app)
 - Live Site URL: [Open the app locally](http://localhost:5173)
 
 ## My process

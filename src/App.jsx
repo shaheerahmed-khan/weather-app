@@ -31,16 +31,22 @@ export default function App() {
 
   const weatherError =
     weatherData.error && !weatherData.data ? weatherData.error : null;
+
+  const hasValidSearchedLocation =
+    Boolean(searchCity?.trim()) &&
+    searchedCoordinates.location.latitude !== null &&
+    searchedCoordinates.location.longitude !== null;
+
   const searchError =
-    searchCity?.trim() &&
-    searchedCoordinates.error &&
-    searchedCoordinates.location.latitude === null &&
-    searchedCoordinates.location.longitude === null
+    searchCity?.trim() && !hasValidSearchedLocation && searchedCoordinates.error
       ? "We couldn't find that city. Showing your current location instead."
       : null;
-  const geolocationMessage = userCoordinates.error
-    ? "Using a default location because location access was unavailable."
-    : null;
+
+  const geolocationMessage =
+    userCoordinates.error && !hasValidSearchedLocation
+      ? "Using a default location because location access was unavailable."
+      : null;
+
   const statusMessage = searchError ?? geolocationMessage;
   const error = weatherError;
 

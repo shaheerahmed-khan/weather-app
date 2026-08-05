@@ -94,6 +94,7 @@ export default function ForecastBoard({
         >
           <img
             src="/assets/images/icon-dropdown.svg"
+            alt="Toggle forecast day"
             className="text-white"
             style={{ transform: isOpen ? "rotate(180deg)" : "none" }}
           />

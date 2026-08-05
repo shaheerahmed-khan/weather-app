@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { unitOptions } from "../assets/unitData.js";
+import checkmarkIcon from "/assets/images/icon-checkmark.svg";
+import dropdownIcon from "/assets/images/icon-dropdown.svg";
+import unitsIcon from "/assets/images/icon-units.svg";
 
 export default function UnitDropdown({ weatherConfig, onSelectUnit }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,10 +13,10 @@ export default function UnitDropdown({ weatherConfig, onSelectUnit }) {
       className="relative rounded-lg shadow-lg bg-[hsl(243,27%,20%)] p-2 z-1 hover:bg-[hsl(243,23%,30%)] transition-colors cursor-pointer active:scale-95 active:translate-y-px focus-within:outline focus-within:outline-white"
     >
       <button type="button" className="flex items-center gap-2">
-        <img src="/assets/images/icon-units.svg" alt="Units" />
+        <img src={unitsIcon} alt="Units" />
         <span>Units</span>
         <img
-          src="/assets/images/icon-dropdown.svg"
+          src={dropdownIcon}
           alt="Toggle units"
           className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
         />
@@ -44,10 +47,7 @@ export default function UnitDropdown({ weatherConfig, onSelectUnit }) {
                 >
                   <span>{unit.label}</span>
                   {weatherConfig[category.stateKey] === unit.name && (
-                    <img
-                      src="/assets/images/icon-checkmark.svg"
-                      className="w-3 h-3"
-                    ></img>
+                    <img src={checkmarkIcon} className="w-3 h-3"></img>
                   )}
                 </div>
               ))}

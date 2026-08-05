@@ -1,4 +1,5 @@
 import { useState } from "react";
+import searchIcon from "/assets/images/icon-search.svg";
 import { getCoordinates } from "/src/api/geocoding.js";
 
 export default function Header({ onSearch }) {
@@ -63,7 +64,8 @@ export default function Header({ onSearch }) {
           onSubmit={handleSearch}
         >
           <img
-            src="/assets/images/icon-search.svg"
+            src={searchIcon}
+            alt="Search"
             className="absolute top-3 left-3 text-[hsl(250,6%,84%)] w-4 h-4"
           ></img>
           <input

@@ -23,8 +23,8 @@
 
 ### Links
 
-- Solution URL: [GitHub Repository](https://github.com/shaheerahmedkhan11/weather-app)
-- Live Site URL: [App](https://weather-app-tau-ten-84.vercel.app/)
+- Solution URL: [GitHub Repository](https://github.com/shaheerahmed-khan/weather-app)
+- Live Site URL: [App](https://weather-app-shaheer10.vercel.app/)
 
 ## My process
 
@@ -72,5 +72,5 @@ The experience was especially helpful for speeding up iteration while keeping th
 
 ## Author
 
-- GitHub - [shaheer](https://github.com/shaheerahmedkhan11/)
+- GitHub - [shaheer](https://github.com/shaheerahmed-khan/)
 - Frontend Mentor - [@shaheer](https://www.frontendmentor.io/profile/shaheer)
